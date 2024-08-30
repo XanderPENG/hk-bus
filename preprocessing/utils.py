@@ -67,8 +67,8 @@ def create_graph(road_gdf: gpd.GeoDataFrame,
         line = row['geometry']
 
         # (lat, lon) format
-        lineStartCoords = (line[coords_col][0][1], line[coords_col][0][0])
-        lineEndCoords = (line[coords_col][-1][1], line[coords_col][-1][0])
+        lineStartCoords = (line.coords[0][1], line.coords[0][0])
+        lineEndCoords = (line.coords[-1][1], line.coords[-1][0])
 
         startNode_id = getNodeInfo(nodesDict, lineStartCoords)
         if startNode_id is None:
