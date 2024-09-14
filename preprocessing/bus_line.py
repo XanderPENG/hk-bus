@@ -246,6 +246,7 @@ class Line:
                            #    thisStopInfo,
                            endStopInfo,
                            networkGraph: nx.Graph,
+                           thold=10,  # Threshold in km. If the path length is longer than this, then the path is not available
                            ):
         ''' preStopNearestNodes = [ox.distance.nearest_nodes(networkGraph, i[0], i[1])
                                for i in preStopInfo[2]]
@@ -274,6 +275,12 @@ class Line:
                                                          fromStopNodes[i], endStopNodes[j],
                                                          weight='length',
                                                          method='dijkstra')
+                    """ If the path length is TOO LONG, then set the path to unavailable """
+                    if pathLength >= thold:
+                        path = []
+                        # Set a large number to indicate the path is not available
+                        pathLength = 9999
+
                 except nx.NetworkXNoPath:
                     path = []
                     # Set a large number to indicate the path is not available

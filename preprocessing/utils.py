@@ -105,7 +105,7 @@ def create_graph(road_gdf: gpd.GeoDataFrame,
 
 
 def format_results(processed_lines: List[Line],
-                   output_dir: str,
+                   output_dir: str = None,
                    ) -> pd.DataFrame:
     result_dict = {}
 

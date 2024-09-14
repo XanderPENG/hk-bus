@@ -14,7 +14,7 @@ import utils
 
 ''' Read the stops and network data '''
 raw_line_stops = gpd.read_file('../data/input/rawLineStops/rawLineStops.shp')  # raw shp-format line-stop info
-gov_road = gpd.read_file('../data/input/road/splitDiGovRoad.shp')
+gov_road = gpd.read_file('../data/input/road/splitDiGovRoadV2.shp')  # Use V2 for better accuracy
 proj_stops = gpd.read_file('../data/input/proj_stops/filteredAggProjStops.shp')  # projected stops
 
 road_graph, indexed_road = utils.create_graph(gov_road)
