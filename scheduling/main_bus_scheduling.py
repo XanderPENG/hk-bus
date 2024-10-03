@@ -208,7 +208,7 @@ def vehicle_scheduling(lineDict, minInterval=5, hold_unknown=True, speed=25):
 
 
 if __name__ == '__main__':
-    line_info = pd.read_csv(r"E:\STUDY\TIP\HKbus\data\HKsimpreparation\line_info.csv")
+    line_info = pd.read_csv(r"../data/line_info.csv")
     lines = []
     for i in range(len(line_info)):
         _line = Line(lineId=i,  # No lineId in the raw data
@@ -234,4 +234,4 @@ if __name__ == '__main__':
     line_dict = {_line.lineId: _line for _line in lines}  # convert line_info list into dict
 
     vs_parking_df = vehicle_scheduling(line_dict, minInterval=5, hold_unknown=False)
-    vs_parking_df.to_csv(r"E:\STUDY\TIP\HKbus\data\HKsimpreparation\HK_all_vs_parking.csv", index=False)
+    vs_parking_df.to_csv(r"../data/HK_all_vs_parking.csv", index=False)
